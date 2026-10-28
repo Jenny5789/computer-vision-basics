@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="240" viewBox="0 0 1100 240" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6B7280"/>
+    </marker>
+  </defs>
+
+  <rect width="1100" height="240" fill="#FFFFFF"/>
+
+  <!-- 입력 -->
+  <rect x="20" y="40" width="160" height="70" rx="10" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="100" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#111827">표지판 이미지 3장</text>
+  <text x="100" y="92" text-anchor="middle" font-size="12" fill="#6B7280">등록 버튼으로 불러옴</text>
+
+  <rect x="20" y="150" width="160" height="70" rx="10" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="100" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#111827">도로 영상 프레임</text>
+  <text x="100" y="202" text-anchor="middle" font-size="12" fill="#6B7280">10프레임마다 인식</text>
+
+  <!-- 입력에서 1단계로 -->
+  <line x1="180" y1="75" x2="207" y2="120" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="180" y1="185" x2="207" y2="140" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 1단계 -->
+  <rect x="210" y="88" width="150" height="84" rx="10" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  <circle cx="230" cy="108" r="11" fill="#6B7280"/>
+  <text x="230" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="248" y="113" font-size="15" font-weight="700" fill="#111827">특징점 추출</text>
+  <text x="226" y="140" font-size="12" fill="#6B7280">SIFT 특징점과</text>
+  <text x="226" y="157" font-size="12" fill="#6B7280">기술자 추출</text>
+
+  <line x1="360" y1="130" x2="388" y2="130" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 2단계 -->
+  <rect x="390" y="88" width="150" height="84" rx="10" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  <circle cx="410" cy="108" r="11" fill="#6B7280"/>
+  <text x="410" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="428" y="113" font-size="15" font-weight="700" fill="#111827">특징점 매칭</text>
+  <text x="406" y="140" font-size="12" fill="#6B7280">FLANN knnMatch</text>
+  <text x="406" y="157" font-size="12" fill="#6B7280">거리 비율 0.55 검사</text>
+
+  <line x1="540" y1="130" x2="568" y2="130" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 3단계 -->
+  <rect x="570" y="88" width="150" height="84" rx="10" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  <circle cx="590" cy="108" r="11" fill="#6B7280"/>
+  <text x="590" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">3</text>
+  <text x="608" y="113" font-size="15" font-weight="700" fill="#111827">기하 검증</text>
+  <text x="586" y="140" font-size="12" fill="#6B7280">RANSAC Homography</text>
+  <text x="586" y="157" font-size="12" fill="#6B7280">인라이어 계산</text>
+
+  <line x1="720" y1="130" x2="748" y2="130" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 4단계 -->
+  <rect x="750" y="88" width="150" height="84" rx="10" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  <circle cx="770" cy="108" r="11" fill="#6B7280"/>
+  <text x="770" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="788" y="113" font-size="15" font-weight="700" fill="#111827">표지판 판정</text>
+  <text x="766" y="140" font-size="12" fill="#6B7280">인라이어 최다</text>
+  <text x="766" y="157" font-size="12" fill="#6B7280">6개 이상이면 인식</text>
+
+  <line x1="900" y1="130" x2="928" y2="130" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 5단계 -->
+  <rect x="930" y="88" width="150" height="84" rx="10" fill="#374151"/>
+  <circle cx="950" cy="108" r="11" fill="#FFFFFF"/>
+  <text x="950" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#374151">5</text>
+  <text x="968" y="113" font-size="15" font-weight="700" fill="#FFFFFF">결과 표시</text>
+  <text x="946" y="140" font-size="12" fill="#D1D5DB">외곽선, 매칭선,</text>
+  <text x="946" y="157" font-size="12" fill="#D1D5DB">특징점 표시</text>
+</svg>
