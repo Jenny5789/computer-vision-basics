@@ -26,4 +26,4 @@ SIFT 특징점 매칭으로 도로 표지판 인식 프로그램을 만든 저�
 
 <img src="./sift_sign_recognition/pipeline.svg" width="800" alt="동작 흐름">
 
-[표지판 인식 프로젝트 상세보기 →](./sift_sign_recognition/)
+[상세보기 →](./sift_sign_recognition/)
